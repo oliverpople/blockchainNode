@@ -13,3 +13,9 @@ class Block {
     );
   }
 }
+
+class BlockChain {
+  constructor() {
+    this.chain = [];
+  }
+}
