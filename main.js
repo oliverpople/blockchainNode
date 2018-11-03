@@ -18,4 +18,13 @@ class BlockChain {
   constructor() {
     this.chain = [];
   }
+
+  addBlock(data) {
+    let index = this.chain.length;
+    let prevHash =
+      this.chain.length !== 0 ? this.chain[this.chain.length - 1].hash : 0;
+    let block = new Block(index, data, prevHash);
+
+    this.chain.push(block);
+  }
 }
