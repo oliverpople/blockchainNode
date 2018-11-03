@@ -27,4 +27,15 @@ class BlockChain {
 
     this.chain.push(block);
   }
+
+  chainIsValid() {
+    for (var i = 0; i < this.chain.length; i++) {
+      if (this.chain[i].hash !== this.chain[i].getHash()) return false;
+
+      if (i > 0 && this.chain[i].prevHash !== this.chain[i - 1].hash)
+        return false;
+    }
+
+    return true;
+  }
 }
