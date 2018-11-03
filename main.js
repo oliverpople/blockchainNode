@@ -1,3 +1,5 @@
+const sha = require("crypto-js/sha256");
+
 class Block {
   constructor(index, data, prevHash) {
     this.index = index;
@@ -39,3 +41,19 @@ class BlockChain {
     return true;
   }
 }
+
+const POPLECoin = new BlockChain();
+
+POPLECoin.addBlock({
+  sender: "Bruce wayne",
+  reciver: "Tony stark",
+  amount: 100
+});
+POPLECoin.addBlock({
+  sender: "Harrison wells",
+  reciver: "Han solo",
+  amount: 50
+});
+POPLECoin.addBlock({ sender: "Tony stark", reciver: "Ned stark", amount: 75 });
+
+console.log(JSON.stringify(POPLECoin, null, 4));
