@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-const BlockChain = () => <h2> BlockChain </h2>;
+import BlockChain from "./Blockchain";
 
 class App extends Component {
   render() {
