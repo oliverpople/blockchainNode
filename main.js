@@ -46,14 +46,16 @@ const POPLECoin = new BlockChain();
 
 POPLECoin.addBlock({
   sender: "Bruce wayne",
-  reciver: "Tony stark",
+  receiver: "Tony stark",
   amount: 100
 });
 POPLECoin.addBlock({
   sender: "Harrison wells",
-  reciver: "Han solo",
+  receiver: "Han solo",
   amount: 50
 });
-POPLECoin.addBlock({ sender: "Tony stark", reciver: "Ned stark", amount: 75 });
+POPLECoin.addBlock({ sender: "Tony stark", receiver: "Ned stark", amount: 75 });
 
 console.log(JSON.stringify(POPLECoin, null, 4));
+
+console.log("Validity: ", POPLECoin.chainIsValid());
