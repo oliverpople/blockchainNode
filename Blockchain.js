@@ -1,6 +1,6 @@
 const Block = require("./Block.js");
 
-module.exports = class BlockChain {
+module.exports = class Blockchain {
   constructor() {
     this.chain = [];
   }
@@ -26,7 +26,7 @@ module.exports = class BlockChain {
   // }
 };
 
-// const POPLECoin = new BlockChain();
+// const POPLECoin = new Blockchain();
 //
 // POPLECoin.addBlock({
 //   sender: "Bruce wayne",

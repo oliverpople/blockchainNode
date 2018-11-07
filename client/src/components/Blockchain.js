@@ -4,12 +4,16 @@ const Block = () => <h3> Block </h3>;
 
 class Blockchain extends Component {
   state = {
-    response: ""
+    chain: ""
   };
 
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ response: res.express }))
+      .then(res => {
+        const APIchain = res[0].chain;
+        const APIchainString = JSON.stringify(APIchain);
+        this.setState({ chain: APIchainString });
+      })
       .catch(err => console.log(err));
   }
 
@@ -24,7 +28,7 @@ class Blockchain extends Component {
     return (
       <div>
         <h2> BlockChain </h2>
-        <p>{this.state.response}</p>
+        <p>{this.state.chain}</p>
         <Block />
       </div>
     );
