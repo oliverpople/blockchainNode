@@ -25,30 +25,31 @@ class Blockchain extends Component {
   };
 
   renderBlocks(chainData) {
-    // Try an introduce ES6 destructing to remove repitiom of 'block'
-    const blockListJSX = chainData.map(block => {
-      var prevHash = "";
-      console.log(prevHash);
-      if (block.prevHash === 0) {
-        prevHash = "0";
-      } else {
-        prevHash = block.prevHash.words;
-        console.log(prevHash);
+    const blockListJSX = _.map(
+      chainData,
+      ({ index, data, hash, prevHash, timestamp }) => {
+        var prevHashChecker = "";
+        if (prevHash === 0) {
+          prevHashChecker = "0";
+        } else {
+          prevHashChecker = prevHash.words;
+        }
+        // Could an introduce further ES6 destructing to remove repitiom of 'data'
+        return (
+          <Block
+            key={index}
+            type="text"
+            component={Block}
+            sender={data.sender}
+            receiver={data.receiver}
+            amount={data.amount}
+            prevHash={prevHashChecker}
+            hash={hash.words}
+            timestamp={timestamp}
+          />
+        );
       }
-      return (
-        <Block
-          key={block.index}
-          type="text"
-          component={Block}
-          sender={block.data.sender}
-          receiver={block.data.receiver}
-          amount={block.data.amount}
-          prevHash={prevHash}
-          hash={block.hash.words}
-          timestamp={block.timestamp}
-        />
-      );
-    });
+    );
     return blockListJSX;
   }
 
