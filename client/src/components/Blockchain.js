@@ -1,11 +1,14 @@
 import _ from "lodash";
 import React, { Component } from "react";
-import sampleData from "./sampleData";
 import Block from "./Block";
+import Form from "./Form";
 
 class Blockchain extends Component {
   state = {
-    chain: []
+    chain: [],
+    sender: ""
+    // receiver: "",
+    // amount: 0
   };
 
   componentDidMount() {
@@ -15,6 +18,7 @@ class Blockchain extends Component {
         this.setState({ chain: APIchainString });
       })
       .catch(err => console.log(err));
+    console.log(this.state);
   }
 
   callApi = async () => {
@@ -51,12 +55,18 @@ class Blockchain extends Component {
     return blockListJSX;
   }
 
+  getNewBlockInputData = data => {
+    // this.setState({ sender: data });
+    console.log(data);
+  };
+
   render() {
     let chainData = this.state.chain;
     return (
       <div>
         <h2> BlockChain </h2>
         {this.renderBlocks(chainData)}
+        <Form getNewBlockInputData={this.getNewBlockInputData} />
       </div>
     );
   }
