@@ -22,4 +22,18 @@ module.exports = app => {
 
     res.send({ POPLECoin });
   });
+
+  app.post("/api/blockchain/addblock", async (req, res) => {
+    // console.log(req);
+    // const POPLECoin = new Blockchain();
+    // POPLECoin.chain = req.chain
+    //
+    // POPLECoin.addBlock({
+    //   sender: "Tony stark",
+    //   receiver: "Ned stark",
+    //   amount: 75
+    // });
+    //
+    res.send({ express: "HELLO THERE!" });
+  });
 };

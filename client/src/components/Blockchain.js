@@ -5,23 +5,22 @@ import Form from "./Form";
 
 class Blockchain extends Component {
   state = {
-    chain: [],
-    sender: ""
+    chain: []
+    // sender: ""
     // receiver: "",
     // amount: 0
   };
 
   componentDidMount() {
-    this.callApi()
+    this.getChain()
       .then(res => {
         const APIchainString = res.POPLECoin.chain;
         this.setState({ chain: APIchainString });
       })
       .catch(err => console.log(err));
-    console.log(this.state);
   }
 
-  callApi = async () => {
+  getChain = async () => {
     const response = await fetch("/api/blockchain");
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
@@ -55,9 +54,27 @@ class Blockchain extends Component {
     return blockListJSX;
   }
 
-  getNewBlockInputData = data => {
-    // this.setState({ sender: data });
-    console.log(data);
+  getNewBlockInputData = newBlockData => {
+    this.addNewBlock(this.state.chain, newBlockData);
+  };
+
+  addNewBlock = async (currentChain, newBlockData) => {
+    let fetchData = {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        currentChain: currentChain,
+        newBlockData: newBlockData
+      })
+    };
+    const response = await fetch("/api/blockchain/addblock", fetchData);
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    console.log(body);
+    return body;
   };
 
   render() {
