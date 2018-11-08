@@ -6,9 +6,6 @@ import Form from "./Form";
 class Blockchain extends Component {
   state = {
     chain: []
-    // sender: ""
-    // receiver: "",
-    // amount: 0
   };
 
   componentDidMount() {

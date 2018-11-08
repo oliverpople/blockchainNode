@@ -11,12 +11,12 @@ export default ({
 }) => {
   return (
     <div>
-      <h3> Sender: {sender} </h3>
-      <h3> Receiver: {receiver} </h3>
-      <h3> Amount: {amount} </h3>
-      <h3> Previous Hash: {prevHash} </h3>
-      <h3> Hash: {hash} </h3>
-      <h3> Timestamp: {timestamp} </h3>
+      <p> Sender: {sender} </p>
+      <p> Receiver: {receiver} </p>
+      <p> Amount: {amount} </p>
+      <p> Previous Hash: {prevHash} </p>
+      <p> Hash: {hash} </p>
+      <p> Timestamp: {timestamp} </p>
     </div>
   );
 };

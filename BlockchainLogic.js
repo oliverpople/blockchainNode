@@ -1,4 +1,4 @@
-const Block = require("./Block.js");
+const Block = require("./BlockLogic.js");
 
 module.exports = class Blockchain {
   constructor() {
