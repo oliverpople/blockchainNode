@@ -57,15 +57,17 @@ class Blockchain extends Component {
         console.log(prevHash);
       }
       return (
-        <div key={block.index} style={{ width: 400 }}>
-          <h3> Index: {block.index} </h3>
-          <h3> Sender: {block.data.sender} </h3>
-          <h3> Receiver: {block.data.receiver} </h3>
-          <h3> Amount: {block.data.amount} </h3>
-          <h3> Previous Hash: {prevHash} </h3>
-          <h3> Hash: {block.hash.words} </h3>
-          <h3> Timestamp: {block.timestamp} </h3>
-        </div>
+        <Block
+          key={block.index}
+          type="text"
+          component={Block}
+          sender={block.data.sender}
+          receiver={block.data.receiver}
+          amount={block.data.amount}
+          prevHash={prevHash}
+          hash={block.hash.words}
+          timestamp={block.timestamp}
+        />
       );
     });
     return blockListJSX;

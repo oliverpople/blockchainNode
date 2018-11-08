@@ -5,19 +5,18 @@ export default ({
   sender,
   receiver,
   amount,
-  preHash,
+  prevHash,
   hash,
   timestamp
 }) => {
   return (
     <div>
-      <h2>{key}</h2>
-      <p>{sender}</p>
-      <p>{receiver}</p>
-      <p>{amount}</p>
-      <p>{preHash}</p>
-      <p>{hash}</p>
-      <p>{timestamp}</p>
+      <h3> Sender: {sender} </h3>
+      <h3> Receiver: {receiver} </h3>
+      <h3> Amount: {amount} </h3>
+      <h3> Previous Hash: {prevHash} </h3>
+      <h3> Hash: {hash} </h3>
+      <h3> Timestamp: {timestamp} </h3>
     </div>
   );
 };
