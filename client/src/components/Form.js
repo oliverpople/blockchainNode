@@ -62,7 +62,14 @@ class Form extends Component {
           type="text"
           name="amount"
         />
-        <input value="Add Block" type="submit" onClick={this.handleSubmit} />
+        <button
+          class="btn waves-effect waves-light"
+          value="Add Block"
+          type="submit"
+          onClick={this.handleSubmit}
+        >
+          Add Block
+        </button>
       </form>
     );
   }

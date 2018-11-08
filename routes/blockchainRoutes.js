@@ -14,11 +14,6 @@ module.exports = app => {
       receiver: "Han solo",
       amount: 50
     });
-    POPLECoin.addBlock({
-      sender: "Tony stark",
-      receiver: "Ned stark",
-      amount: 75
-    });
 
     res.send({ POPLECoin });
   });

@@ -5,7 +5,7 @@ import BlockChain from "./Blockchain";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{ margin: "0 20px" }}>
         <BlockChain />
       </div>
     );
