@@ -54,8 +54,12 @@ class Blockchain extends Component {
     return blockListJSX;
   }
 
-  getNewBlockInputData = newBlockData => {
-    this.addNewBlock(this.state.chain, newBlockData);
+  getNewBlockInputData = async newBlockData => {
+    const updatedBlockchain = await this.addNewBlock(
+      this.state.chain,
+      newBlockData
+    );
+    this.setState({ chain: updatedBlockchain.POPLECoin.chain });
   };
 
   addNewBlock = async (currentChain, newBlockData) => {
@@ -73,7 +77,6 @@ class Blockchain extends Component {
     const response = await fetch("/api/blockchain/addblock", fetchData);
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
-    console.log(body);
     return body;
   };
 
