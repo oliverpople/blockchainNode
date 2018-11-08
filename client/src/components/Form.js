@@ -4,32 +4,63 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: ""
+      sender: "",
+      receiver: "",
+      amount: 0
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateInput = this.updateInput.bind(this);
+    this.updateInputSender = this.updateInputSender.bind(this);
+    this.updateInputReceiver = this.updateInputReceiver.bind(this);
+    this.updateInputAmount = this.updateInputAmount.bind(this);
   }
 
-  updateInput(event) {
+  updateInputSender(event) {
     this.setState({
-      inputValue: event.target.value
+      sender: event.target.value
+    });
+  }
+
+  updateInputReceiver(event) {
+    this.setState({
+      receiver: event.target.value
+    });
+  }
+
+  updateInputAmount(event) {
+    this.setState({
+      amount: event.target.value
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.getNewBlockInputData(this.state.inputValue);
+    this.props.getNewBlockInputData(this.state);
   }
 
   render() {
     return (
       <form>
+        Sender:
         <input
-          value={this.state.inputValue}
-          onChange={this.updateInput}
+          value={this.state.sender}
+          onChange={this.updateInputSender}
           type="text"
-          name="name"
+          name="sender"
+        />
+        Receiver:
+        <input
+          value={this.state.receiver}
+          onChange={this.updateInputReceiver}
+          type="text"
+          name="receiver"
+        />
+        Amount:
+        <input
+          value={this.state.amount}
+          onChange={this.updateInputAmount}
+          type="text"
+          name="amount"
         />
         <input type="submit" onClick={this.handleSubmit} />
       </form>
