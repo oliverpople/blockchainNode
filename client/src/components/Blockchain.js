@@ -11,8 +11,6 @@ class Blockchain extends Component {
   componentDidMount() {
     this.callApi()
       .then(res => {
-        // Add hygeine middleware function for turning API response into react properties
-        // const APIchainString = JSON.stringify(res.POPLECoin.chain);
         const APIchainString = res.POPLECoin.chain;
         this.setState({ chain: APIchainString });
       })
@@ -26,27 +24,8 @@ class Blockchain extends Component {
     return body;
   };
 
-  // renderBlocks(chainData) {
-  //   return chainData.map(
-  //     block => ({ index, data, preHash, hash, timestamp }) => {
-  //       return (
-  //         <Block
-  //           key={index}
-  //           type="text"
-  //           component={Block}
-  //           sender={data.sender}
-  //           receiver={data.receiver}
-  //           amount={data.amount}
-  //           preHash={preHash}
-  //           hash={hash}
-  //           timestamp={timestamp}
-  //         />
-  //       );
-  //     }
-  //   );
-  // }
-
   renderBlocks(chainData) {
+    // Try an introduce ES6 destructing to remove repitiom of 'block'
     const blockListJSX = chainData.map(block => {
       var prevHash = "";
       console.log(prevHash);
@@ -71,23 +50,6 @@ class Blockchain extends Component {
       );
     });
     return blockListJSX;
-
-    // const blocks = chainData.map(block => {
-    // return (
-    //   <Block
-    //     key={block.index}
-    //     type="text"
-    //     component={Block}
-    //     sender={block.data.sender}
-    //     receiver={block.data.receiver}
-    //     amount={block.data.amount}
-    //     preHash={block.preHash}
-    //     hash={block.hash}
-    //     timestamp={block.timestamp}
-    //   />
-    // );
-    // console.log(blocks);
-    // });
   }
 
   render() {
