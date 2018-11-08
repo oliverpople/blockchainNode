@@ -29,11 +29,9 @@ class Blockchain extends Component {
       chainData,
       ({ index, data, hash, prevHash, timestamp }) => {
         var prevHashChecker = "";
-        if (prevHash === 0) {
-          prevHashChecker = "0";
-        } else {
-          prevHashChecker = prevHash.words;
-        }
+        prevHash === 0
+          ? (prevHashChecker = "0")
+          : (prevHashChecker = prevHash.words);
         // Could an introduce further ES6 destructing to remove repitiom of 'data'
         return (
           <Block
