@@ -1,4 +1,4 @@
-const Blockchain = require(".././BlockChainLogic");
+const Blockchain = require(".././BlockchainLogic");
 
 module.exports = app => {
   app.get("/api/blockchain", async (req, res) => {
