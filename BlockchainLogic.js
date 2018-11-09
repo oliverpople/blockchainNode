@@ -14,32 +14,18 @@ module.exports = class Blockchain {
     this.chain.push(block);
   }
 
-  // chainIsValid() {
-  //   for (var i = 0; i < this.chain.length; i++) {
-  //     if (this.chain[i].hash !== this.chain[i].getHash()) return false;
-  //
-  //     if (i > 0 && this.chain[i].prevHash !== this.chain[i - 1].hash)
-  //       return false;
-  //   }
-  //
-  //   return true;
-  // }
-};
-
-// const POPLECoin = new Blockchain();
+//   chainIsValid() {
+//     for (var i = 0; i < this.chain.length; i++) {
+//       if (this.chain[i].hash !== this.chain[i].getHash()) return false;
 //
-// POPLECoin.addBlock({
-//   sender: "Bruce wayne",
-//   receiver: "Tony stark",
-//   amount: 100
-// });
-// POPLECoin.addBlock({
-//   sender: "Harrison wells",
-//   receiver: "Han solo",
-//   amount: 50
-// });
-// POPLECoin.addBlock({ sender: "Tony stark", receiver: "Ned stark", amount: 75 });
-
-// console.log(JSON.stringify(POPLECoin, null, 4));
+//       if (i > 0 && this.chain[i].prevHash !== this.chain[i - 1].hash)
+//         return false;
+//     }
 //
-// console.log("Validity: ", POPLECoin.chainIsValid());
+//     return true;
+//   }
+// };
+//
+// console.log("Validity: ", CILCoin.chainIsValid());
+// CILCoin.chain[0].data.reciver = "Joker";
+// console.log("Validity: ", CILCoin.chainIsValid());
