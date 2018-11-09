@@ -63,7 +63,7 @@ class Form extends Component {
           name="amount"
         />
         <button
-          class="btn waves-effect waves-light"
+          className="btn waves-effect waves-light"
           value="Add Block"
           type="submit"
           onClick={this.handleSubmit}
