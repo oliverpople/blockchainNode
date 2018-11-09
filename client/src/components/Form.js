@@ -68,7 +68,7 @@ class Form extends Component {
           type="submit"
           onClick={this.handleSubmit}
         >
-          Add Block
+          Confirm Transaction
         </button>
       </form>
     );

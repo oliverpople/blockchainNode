@@ -81,7 +81,7 @@ class Blockchain extends Component {
     let chainData = this.state.chain;
     return (
       <div>
-        <h2> Build a BlockChain </h2>
+        <h2> Send PopleCoin </h2>
         <Form getNewBlockInputData={this.getNewBlockInputData} />
         {this.renderBlocks(chainData)}
       </div>
